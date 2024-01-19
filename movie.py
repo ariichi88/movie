@@ -23,13 +23,15 @@ def CopyMp4Files(date, newname):
     datestr = date.replace('/', '-')
     fromfiles = [f for f in os.listdir(FromDir) if datestr in f]
     fromfiles.sort()
-    for count, fromfile in enumerate(fromfiles):
+    count = 1
+    for _, fromfile in enumerate(fromfiles):
         _, ext = os.path.splitext(fromfile)
         if 'jpg' in ext:
             pass
         else:
-            tofile = newname + '-' + format(count + 1, '02') + ext
+            tofile = newname + '-' + format(count, '02') + ext
             shutil.copy2(FromDir + fromfile, ToDir + '/' + tofile)
+            count = count + 1
 
 
 if __name__ == '__main__':
