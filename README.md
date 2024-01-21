@@ -16,6 +16,11 @@ movie.pyをパスの等っている場所にコピー
 ```
 cp movie.py /hoge/fuga
 ```
+FromDirとToDirの設定  
+エディタでmovie.pyを開きFromDirとToDirを設定する  
+```
+vim movie.py
+```
 実行権（パーミッション）の変更 
 ```
 chmod +x movie.py
