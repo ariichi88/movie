@@ -7,8 +7,8 @@ import datetime
 import shutil
 import re
 
-FromDir = ''
-ToDir = ''
+FromDir = '/home/username/Dropbox/カメラアップロード/'
+ToDir = '/home/username/Videos/'
 
 
 def CheckDateFormat(date):
@@ -28,7 +28,7 @@ def CopyMp4Files(date, newname):
         _, ext = os.path.splitext(fromfile)
         if 'mp4' in ext:
             tofile = newname + '-' + format(count, '02') + ext
-            shutil.copy2(FromDir + fromfile, ToDir + '/' + tofile)
+            shutil.copy2(FromDir + fromfile, ToDir + tofile)
             count = count + 1
 
 
