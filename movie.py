@@ -8,11 +8,11 @@ import datetime
 import shutil
 import re
 
-FromDir = '/home/username/Dropbox/カメラアップロード/'
-ToDir = '/home/username/Videos/'
+FROM_DIR = '/home/username/Dropbox/カメラアップロード/'
+TO_DIR = '/home/username/Videos/'
 
 
-def CheckDateFormat(date):
+def check_date_format(date):
     res = re.match(r'20[0-9][0-9]/[0-1][0-9]/[0-3][0-9]', date)
     if res:
         return True
@@ -20,16 +20,16 @@ def CheckDateFormat(date):
         return False
 
 
-def CopyMp4Files(date, newname):
-    datestr = date.replace('/', '-')
-    fromfiles = [f for f in os.listdir(FromDir) if datestr in f]
-    fromfiles.sort()
+def copy_mp4_files(date, newname):
+    date_str = date.replace('/', '-')
+    from_files = [f for f in os.listdir(FROM_DIR) if date_str in f]
+    from_files.sort()
     count = 1
-    for _, fromfile in enumerate(fromfiles):
-        _, ext = os.path.splitext(fromfile)
+    for _, from_file in enumerate(from_files):
+        _, ext = os.path.splitext(from_file)
         if 'mp4' in ext:
-            tofile = newname + '-' + format(count, '02') + ext
-            shutil.copy2(FromDir + fromfile, ToDir + tofile)
+            to_file = newname + '-' + format(count, '02') + ext
+            shutil.copy2(FROM_DIR + from_file, TO_DIR + to_file)
             count = count + 1
 
 
@@ -46,8 +46,9 @@ if __name__ == '__main__':
         print('使用法　movie.py [date] newname')
         print('日付のフォーマットyyyy/mm/dd')
         sys.exit(1)
-    if CheckDateFormat(date):
-        CopyMp4Files(date, name)
+
+    if check_date_format(date):
+        copy_mp4_files(date, name)
     else:
         print('日付のフォーマットが違います')
         print('フォーマット yyyy/mm/dd')
