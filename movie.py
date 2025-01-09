@@ -20,7 +20,7 @@ def check_date_format(date):
         return False
 
 
-def copy_mp4_files(date, newname):
+def copy_mp4_files(date, new_name):
     date_str = date.replace('/', '-')
     from_files = [f for f in os.listdir(FROM_DIR) if date_str in f]
     from_files.sort()
@@ -28,13 +28,14 @@ def copy_mp4_files(date, newname):
     for _, from_file in enumerate(from_files):
         _, ext = os.path.splitext(from_file)
         if 'mp4' in ext:
-            to_file = newname + '-' + format(count, '02') + ext
+            to_file = new_name + '-' + format(count, '02') + ext
             shutil.copy2(FROM_DIR + from_file, TO_DIR + to_file)
             count = count + 1
 
 
 if __name__ == '__main__':
     arg = sys.argv
+
     if len(arg) == 2:
         dt = datetime.datetime.now()
         date = dt.strftime('%Y/%m/%d')
