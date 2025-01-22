@@ -19,17 +19,17 @@ movie.pyをパスの等っている場所にコピー
 ```
 cp movie.py /hoge/fuga
 ```
-FromDirとToDirの設定  
-エディタでmovie.pyを開きFromDirとToDirを設定する  
+FROM\_DIRとTO\_DIRの設定  
+エディタでmovie.pyを開きFROM\_DIRとTO\_DIRを設定する  
 
 実行権（パーミッション）の変更 
 ```
 chmod +x movie.py
 ```
 
-## FromDirとToDirの設定例
-FromDir = '/home/*username*/Dropbox/カメラアップロード/'  
-ToDir = '/home/*username*/Videos/'  
+## FROM\_DIRとTO\_DIRの設定例
+FROM\_DIR = '/home/*username*/Dropbox/カメラアップロード/'  
+TO\_DIR = '/home/*username*/Videos/'  
 
 ## 使い方
 movie.py [日付] 新しい名前  
