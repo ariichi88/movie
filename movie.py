@@ -29,7 +29,7 @@ def copy_mp4_files(date, name):
         _, ext = os.path.splitext(from_file)
         if 'mp4' in ext:
             to_file = name + '-' + format(count, '02') + ext
-            shutil.copy2(FROM_DIR + from_file, TO_DIR + to_file)
+            shutil.copy2(FROM_DIR + from_file, TO_DIR + '/' + to_file)
             count = count + 1
 
 
