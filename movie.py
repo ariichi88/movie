@@ -21,8 +21,8 @@ def check_date_format(date):
 
 
 def copy_mp4_files(date, name):
-    date_str = date.replace('/', '-')
-    from_files = [f for f in os.listdir(FROM_DIR) if date_str in f]
+    old_name = date.replace('/', '-')
+    from_files = [f for f in os.listdir(FROM_DIR) if old_name in f]
     from_files.sort()
     count = 1
     for _, from_file in enumerate(from_files):
