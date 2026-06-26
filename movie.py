@@ -11,6 +11,12 @@ FROM_DIR = '/home/username/Dropbox/カメラアップロード/'
 TO_DIR = '/home/username/Videos/'
 
 
+def usage():
+    print('使用法　movie.py [date] newname')
+    print('日付のフォーマットyyyy/mm/dd')
+    sys.exit(1)
+
+
 def check_date_format(date):
     res = re.match(r'20[0-9][0-9]/[0-1][0-9]/[0-3][0-9]', date)
     if res:
@@ -32,7 +38,7 @@ def copy_mp4_files(date, name):
             count = count + 1
 
 
-if __name__ == '__main__':
+def main(arg):
     arg = sys.argv
 
     if len(arg) == 2:
@@ -43,13 +49,13 @@ if __name__ == '__main__':
         date = arg[1]
         name = arg[2]
     else:
-        print('使用法　movie.py [date] newname')
-        print('日付のフォーマットyyyy/mm/dd')
-        sys.exit(1)
+        usage()
 
     if check_date_format(date):
         copy_mp4_files(date, name)
     else:
-        print('日付のフォーマットが違います')
-        print('フォーマット yyyy/mm/dd')
-        sys.exit(1)
+        usage()
+
+
+if __name__ == '__main__':
+    main(sys.argv)
